@@ -19,6 +19,7 @@ parsings
 # Clojure
 *.jar
 *.class
+.cpcache/
 
 # ClojureScript
 /out/
@@ -32,3 +33,6 @@ parsings
 .lein_classpath
 bin/lein
 /src/metaprob/tutorial/.ipynb_checkpoints/
+
+# Ignore vim swap files
+*.swp

@@ -62,7 +62,7 @@
       (is (= '(("x")) (trace/addresses-of t1)))
       (is (not (trace/trace-has-value? t1)))
       (is (= v1 (trace/trace-value t1 "x")))
-      (is (= s1 0))
+      (is (= s1 0.0M))
       (is (= s2 (if v1 (pre/log p) (pre/log (- 1 p)))))
       (is (= t1 t2))
       (is (= v1 v2)))))
@@ -99,10 +99,10 @@
           (let [[v t s] (pre/infer-and-score :procedure foo :inputs [mu] :observation-trace fixed-choices)]
             (if (trace/trace-value t "branch")
               (do (is (= t first-branch-trace))
-                  (is (not= s 0)))
+                  (is (not= s 0.0M)))
               (do (is (trace/trace-has-value? t "y"))
                   (is (trace/trace-has-value? t '("v" "b")))
-                  (is (= s 0))
+                  (is (= s 0.0M))
                   (is (= 3 (count (trace/addresses-of t))))))
             (recur (inc i))))))))
 
